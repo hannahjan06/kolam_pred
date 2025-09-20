@@ -35,57 +35,49 @@ Welcome to the **Kolam Web App**, an interactive platform that preserves and pro
 │   │   └── stylesheet.css
 │   ├── js/
 │   │   └── script.js
-│   └── images/             # Static images/icons
 │
 ├── templates/
 │   └── index.html
 │
-├── notebooks/              # Optional: show workflow to judges
+├── notebooks/              # for showing the training notebook
 │   ├── preprocess_images.ipynb
 │   └── train_model.ipynb
 │
 └── README.md
 ```
-Note: The notebooks/ folder is optional and only for demo purposes; it shows how we preprocessed data and trained the model. The running prototype only needs app.py, .keras model, and frontend files.
+> **Note:** The `notebooks/` folder is optional and only for demo purposes; it shows how we preprocessed data and trained the model.  
+> The running prototype only needs `app.py`, `.keras` model, and frontend files.
 
-⚙️ Tech Stack
+---
 
-Frontend: HTML, CSS, JavaScript (canvas API for drawing)
+## ⚙️ Tech Stack
 
-Backend: Python Flask
+**Frontend:** HTML, CSS, JavaScript (canvas API for drawing)  
+**Backend:** Python Flask  
+**Machine Learning:** TensorFlow/Keras (EfficientNetB0 for classification, optional generative model)  
+**Chatbot:** AI model via API (e.g., OpenAI GPT)  
+**Deployment (Free options):**  
+- Frontend → Vercel (static)  
+- Backend → Render (Flask server)  
 
-Machine Learning: TensorFlow/Keras (EfficientNetB0 for classification, optional generative model)
+---
 
-Chatbot: AI model via API (e.g., OpenAI GPT)
+## 🚀 How to Run Locally
 
-Deployment (Free options):
-
-Frontend: Vercel (static)
-
-Backend: Render (Flask server)
-
-🚀 How to Run Locally
-
-Clone the repo
-
+**Clone the repo:**
+```bash
 git clone <your-repo-url>
 cd kolam_app
-
-
-Install dependencies
-
-pip install -r requirements.txt
-
-
-Run the Flask app
-
-python app.py
-
-
-By default, it will run at http://127.0.0.1:5000/.
-
-Open the frontend
-Open index.html in your browser (or use Flask’s template rendering). All features—upload, generate, chatbot, and drawing—will be functional.
+```
+**Install dependencies**
+```pip install -r requirements.txt
+```
+**Run the Flask app**
+```python app.py
+```
+> By default, it will run at http://127.0.0.1:5000/.
+> Open the frontend
+> Open index.html in your browser (or use Flask’s template rendering). All features—upload, generate, chatbot, and drawing—will be functional.
 
 🖌 Features in Detail
 Feature	Description
