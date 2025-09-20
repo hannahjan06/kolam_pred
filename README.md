@@ -75,45 +75,50 @@ cd kolam_app
 **Run the Flask app**
 ```python app.py
 ```
-> By default, it will run at http://127.0.0.1:5000/. 
-> Open the frontend 
-> Open index.html in your browser (or use Flask’s template rendering). All features—upload, generate, chatbot, and drawing—will be functional. 
+> By default, it will run at http://127.0.0.1:5000/.  
+> Open the frontend  
+> Open index.html in your browser (or use Flask’s template rendering). All features—upload, generate, chatbot, and drawing—will be functional.  
 
-🖌 Features in Detail
-Feature	Description
-Kolam Classification	Upload a Kolam image, get AI-predicted motif/type.
-Kolam Generation	Generate new Kolam designs using AI.
-Chatbot	Ask questions about Kolam, history, and technique.
-Draw Your Own Kolam	Draw, color, and save personal Kolams.
-Mood-based Recommendations	View symmetric designs for relaxation or colorful ones for inspiration.
-📦 Notebooks (Optional)
+## 🖌 Features in Detail
+
+| Feature | Description |
+|---------|-------------|
+| **Kolam Classification** | Upload a Kolam image, get AI-predicted motif/type. |
+| **Kolam Generation** | Generate new Kolam designs using AI. |
+| **Chatbot** | Ask questions about Kolam, history, and technique. |
+| **Draw Your Own Kolam** | Draw, color, and save personal Kolams. |
+| **Mood-based Recommendations** | View symmetric designs for relaxation or colorful ones for inspiration. |
+
+---
+
+## 📦 Notebooks (Optional)
 
 For judges who want to see our workflow:
 
-preprocess_images.ipynb → Shows how we converted images to matrix form for model input.
+- `preprocess_images.ipynb` → Shows how we converted images to matrix form for model input.  
+- `train_model.ipynb` → Contains model training, testing, and saving `.keras` files.  
 
-train_model.ipynb → Contains model training, testing, and saving .keras files.
+> ⚠️ These notebooks are not required for running the live demo.
 
-These notebooks are not required for running the live demo.
+---
 
-💡 Extra Notes
+## 💡 Extra Notes
 
-Model files: Only kolam_classifier.keras is needed for running the prototype.
+- **Model files:** Only `kolam_classifier.keras` is needed for running the prototype.  
+- **Data:** Original datasets are not included; the prototype runs with the saved model.  
+- **Extensibility:** You can add a generative Kolam model, enhanced chatbot, or user login features later.
 
-Data: Original datasets are not included; the prototype runs with the saved model.
+---
 
-Extensibility: You can add a generative Kolam model, enhanced chatbot, or user login features later.
+## 📜 References
 
-📜 References
+- KolamNet: Kolam classification using EfficientNetB0  
+- Generative AI for Rangoli/Kolam patterns  
+- Art therapy benefits of coloring mandala/symmetric patterns  
+- Digitization of cultural heritage – Ministry of Culture
 
-KolamNet: Kolam classification using EfficientNetB0
+---
 
-Generative AI for Rangoli/Kolam patterns
+## 👩‍💻 Authors
 
-Art therapy benefits of coloring mandala/symmetric patterns
-
-Digitization of cultural heritage – Ministry of Culture
-
-👩‍💻 Authors
-
-Your Team Name / Hackathon Team Members
+DebugDivas / Hannah Janawa
