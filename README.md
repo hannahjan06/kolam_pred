@@ -75,9 +75,9 @@ cd kolam_app
 **Run the Flask app**
 ```python app.py
 ```
-> By default, it will run at http://127.0.0.1:5000/.
-> Open the frontend
-> Open index.html in your browser (or use Flask’s template rendering). All features—upload, generate, chatbot, and drawing—will be functional.
+> By default, it will run at http://127.0.0.1:5000/. 
+> Open the frontend 
+> Open index.html in your browser (or use Flask’s template rendering). All features—upload, generate, chatbot, and drawing—will be functional. 
 
 🖌 Features in Detail
 Feature	Description
