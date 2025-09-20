@@ -1,21 +1,26 @@
-Kolam Cultural Heritage Web App
-🌸 Overview
+# 🌸 Kolam Cultural Heritage Web App
 
-Welcome to the Kolam Web App! This interactive platform preserves and promotes Kolam, a traditional South Indian floor art. Our project allows users to:
+Welcome to the **Kolam Web App**, an interactive platform that preserves and promotes **Kolam**, a traditional South Indian floor art. This project combines **AI, cultural heritage, and interactive web design** in a single, easy-to-use prototype.  
 
-Classify Kolam designs: Upload a photo of a Kolam, and our AI identifies its type using a pre-trained EfficientNetB0 model.
+---
 
-Generate new Kolams: Press a button and create a unique Kolam design using a generative AI model.
+## 🖼️ Features
 
-Ask the Kolam Chatbot: Learn about Kolam history, symbolism, and techniques through an AI-powered chatbot.
+| Feature | Description |
+|---------|-------------|
+| **Kolam Classification** | Upload a Kolam image and get AI-predicted motif/type using **EfficientNetB0**. |
+| **Kolam Generation** | Generate new Kolam designs using AI. |
+| **Chatbot** | Ask questions about Kolam history, symbolism, and techniques through an AI-powered chatbot. |
+| **Draw Your Own Kolam** | Draw, color, and save personal Kolams using a canvas tool. |
+| **Mood-based Recommendations** | Explore symmetric designs for relaxation or colorful ones for inspiration (art therapy). |
 
-Draw your own Kolam: Use the canvas tool to draw and save your own Kolam creations.
+> 💡 **Tip:** Users can explore Kolam as a relaxing, creative experience — combining cultural learning with mood-based art therapy.  
 
-Experience mood-based therapy: Explore symmetric or colorful patterns depending on your mood—helping users relax or get inspired.
+---
 
-This project combines AI, cultural heritage, and interactive web design in a single, easy-to-use prototype.
+## 🗂 Project Structure
 
-🗂 Project Structure
+```text
 /kolam_app
 │
 ├── app.py                  # Flask backend
@@ -30,18 +35,17 @@ This project combines AI, cultural heritage, and interactive web design in a sin
 │   │   └── stylesheet.css
 │   ├── js/
 │   │   └── script.js
-│   └── images/             # Any static images/icons
+│   └── images/             # Static images/icons
 │
 ├── templates/
 │   └── index.html
 │
 ├── notebooks/              # Optional: show workflow to judges
-│   ├── preprocess_images.ipynb   # Convert images to matrices
-│   └── train_model.ipynb         # Training and testing
+│   ├── preprocess_images.ipynb
+│   └── train_model.ipynb
 │
 └── README.md
-
-
+```
 Note: The notebooks/ folder is optional and only for demo purposes; it shows how we preprocessed data and trained the model. The running prototype only needs app.py, .keras model, and frontend files.
 
 ⚙️ Tech Stack
