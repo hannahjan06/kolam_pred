@@ -65,15 +65,18 @@ Welcome to the **Kolam Web App**, an interactive platform that preserves and pro
 ## 🚀 How to Run Locally
 
 **Clone the repo:**
-```bash
+```
+bash
 git clone <your-repo-url>
 cd kolam_app
 ```
 **Install dependencies**
-```pip install -r requirements.txt
+```
+pip install -r requirements.txt
 ```
 **Run the Flask app**
-```python app.py
+```
+python app.py
 ```
 > By default, it will run at http://127.0.0.1:5000/.  
 > Open the frontend  
@@ -91,14 +94,12 @@ cd kolam_app
 
 ---
 
-## 📦 Notebooks (Optional)
+## 📦 Training notebooks
 
-For judges who want to see our workflow:
+For anyone who wants to see our workflow:
 
 - `preprocess_images.ipynb` → Shows how we converted images to matrix form for model input.  
-- `train_model.ipynb` → Contains model training, testing, and saving `.keras` files.  
-
-> ⚠️ These notebooks are not required for running the live demo.
+- `train_model.ipynb` → Contains model training, testing, and saving `.keras` files.
 
 ---
 
@@ -119,6 +120,11 @@ For judges who want to see our workflow:
 
 ---
 
-## 👩‍💻 Authors
-
-DebugDivas / Hannah Janawa
+## 👩‍💻 Know our Team
+### DebugDivas
+- Hannah Janawa
+- Avantika Mogha
+- Gargi Sharma
+- Ekta Yadav
+- Ankita Behera
+- Anshita Yadav
