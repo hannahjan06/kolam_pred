@@ -1,0 +1,423 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  line-height: 1.6;
+  position: relative;
+}
+
+/* Rangoli wallpaper across the whole site */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://png.pngtree.com/background/20210714/original/pngtree-diwali-circle-rangoli-pattern-on-black-background-picture-image_1249277.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+  z-index: -1;
+}
+
+
+
+
+/* Section 5 - Brand Banner */
+.section-5 {
+  background-color: rgba(253, 248, 239, 0.3);
+  text-align: center;
+  padding: 40px 20px;
+  border-bottom: 2px solid #ddd;
+}
+
+
+.section-5 h1 {
+  font-family: 'Playfair Display', serif; /* elegant but bold */
+  font-size: 9rem;
+  font-style:italic;
+  text-align: center;
+  letter-spacing: 6px;
+  color: #ffffff; /* pure white */
+  text-shadow: 0 0 15px #03095e, 0 0 30px #93d0e7; /* glowing neon-style */
+  animation: glow 2s infinite alternate; /* subtle animation */
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #03095e, 0 0 20px#93d0e7;
+  }
+  to {
+    text-shadow: 0 0 25px #03095e, 0 0 45px#93d0e7;
+  }
+}
+
+
+/* Section 6 - Sticky Nav Bar */
+.section-6 {
+  background-color: rgba(169, 219, 253, 0.9);
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  backdrop-filter: blur(6px); /* frosted glass effect */
+}
+
+.section-6 ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.section-6 li {
+  margin: 0 20px;
+}
+
+.section-6 a {
+  display: block;
+  padding: 15px 10px;
+  font-size: 1.1rem;
+  color: black;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+}
+
+.section-6 a:hover,
+.section-6 a.active {
+  color: white;
+  background-color: #0a198a;
+}
+
+/* Content sections */
+main section {
+  padding: 100px 50px;
+  min-height: 100vh;
+  background-color: rgba(240, 248, 255, 0.9); /* AliceBlue, icy light */
+  border-bottom: 1px solid #ddd;
+  backdrop-filter: blur(6px);
+}
+
+main section:nth-child(even) {
+  background-color: rgba(224, 240, 255, 0.9); /* soft cloudy sky blue */
+  backdrop-filter: blur(6px);
+}
+
+
+main h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+#home h2 {
+  text-align: center;
+}
+#home p {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 20px;
+}
+
+.types {
+  list-style-position: inside;  
+  text-align: center;            
+  padding: 0;                    
+  margin: 20px auto;             
+}
+
+.types li {
+  margin: 5px 0;                 
+}
+
+.upload-container {
+  text-align: center;
+  background: linear-gradient(135deg, #9dd7f9, #80d0ed);
+  border: 4px dashed #ff6f61;
+  border-radius: 20px;
+  padding: 40px 30px;
+  width: 60%;
+  margin: 40px auto;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  position: relative;
+}
+
+.upload-container::before {
+  content: "";
+  position: absolute;
+  top: -15px; left: -15px; right: -15px; bottom: -15px;
+  border: 3px dotted #ff4081;
+  border-radius: 25px;
+  pointer-events: none;
+}
+
+.upload-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #f0eceb;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px #99d3ef;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  background: #ff6f61;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s ease;
+  border: 2px solid #fff3e0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.custom-file-upload:hover {
+  background: #d84315;
+  transform: scale(1.1);
+}
+
+#file-name {
+  display: block;
+  margin-top: 15px;
+  font-size: 15px;
+  color: #6d4c41;
+  font-style: italic;
+}
+
+.upload-container button {
+  margin-top: 20px;
+  background: #ff4081;
+  border: none;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.upload-container button:hover {
+  background: #c2185b;
+  transform: scale(1.05);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+}
+
+/* 🌸 Canvas Section */
+.canvas-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+#toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  background: linear-gradient(135deg, #ffe0ec, #fff4d9);
+  border: 3px dashed #ff7ca3;
+  border-radius: 20px;
+  padding: 20px 25px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+#toolbar h3 {
+  font-family: 'Playfair Display', serif;
+  color: #ff4081;
+  text-shadow: 1px 1px #fff;
+}
+
+#toolbar button,
+#toolbar input[type="color"],
+#toolbar input[type="number"] {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  background: #ffbad2;
+  color: #4a2c2a;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#toolbar button:hover {
+  background: #ff82ad;
+  transform: scale(1.05);
+}
+
+#kolamBoard {
+  border: 5px dotted #ff82ad;
+  background: radial-gradient(circle, #fffdf8, #ffeef7);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  border-radius: 20px;
+}
+
+.canvas{
+  width: 80%;
+  height: 600px;
+  margin: 50px auto;
+  background: linear-gradient(135deg, #fff5e6, #ffe0b2);
+  border: 10px double #ff7043;
+  border-radius: 30px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cute floating decorative motifs in corners */
+.canvas::before,
+.canvas::after {
+  content: "✿";
+  position: absolute;
+  font-size: 40px;
+  color: #e91e63;
+  opacity: 0.3;
+}
+
+.canvas::before {
+  top: 15px;
+  left: 25px;
+}
+
+.canvas:after {
+  bottom: 15px;
+  right: 25px;
+}
+
+#kolamBoard {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: transparent;
+}
+
+.user-box {
+  display: flex;
+  flex-direction: column; /* stacks icon & button vertically */
+  align-items: flex-end;  /* pushes them to the right */
+  margin: 20px;
+}
+
+.user-box i {
+  font-size: 40px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.login-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.login-btn:hover {
+  background-color: #0056b3;
+}
+h1{
+  color: #ffffff !important;
+}
+/* Make all section headings white */
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  color: #ffffff; /* pure white */
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6); /* optional: adds glow for readability */
+}
+/* Gallery Section */
+.gallery-section {
+  background: #0f172a; /* matches your bluish theme */
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.gallery-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: white;
+}
+
+/* Masonry / Pinterest style */
+.gallery-grid {
+  column-count: 3; /* number of columns */
+  column-gap: 15px;
+}
+
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 15px;
+  background: #1e293b;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  transition: transform 0.2s;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item img {
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid #334155;
+}
+
+/* Like / Dislike Buttons */
+.like-dislike {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background: #1e293b;
+}
+
+.like, .dislike {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.like:hover { transform: scale(1.3); color: #22c55e; }
+.dislike:hover { transform: scale(1.3); color: #ef4444; }
+/* Search + Filters */
+.gallery-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.gallery-controls input,
+.gallery-controls select {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #1e293b;
+  color: white;
+}
+
+.gallery-controls input::placeholder {
+  color: #94a3b8;
+}
