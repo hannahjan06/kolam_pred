@@ -53,7 +53,7 @@ function drawGrid() {
   const grid = parseInt(gridInput.value);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  ctx.strokeStyle = '#ddd';
+  ctx.strokeStyle = '#fffff';
   ctx.lineWidth = 1;
 
   for (let x = 0; x <= canvas.width; x += grid) {
