@@ -6,7 +6,7 @@
   <title>Kolamify</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}">
 </head>
 <body>
 
@@ -195,6 +195,6 @@
     
   
 
-  <script src="script.js"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
