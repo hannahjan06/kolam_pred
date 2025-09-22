@@ -1,0 +1,7 @@
+numpy
+opencv-python
+pillow
+tensorflow        # if using TF model (optional)
+streamlit
+flask
+werkzeug

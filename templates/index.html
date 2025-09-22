@@ -179,7 +179,17 @@
           <br>
          <button type="submit">Upload</button>
         </form>
-      </div>
+        <!-- ⬇️ ADD THIS PART -->
+        {% if prediction %}
+          <div class="upload-result" style="margin-top:16px;">
+            <h3>Result</h3>
+            {% if image_url %}
+              <img src="{{ image_url }}" alt="uploaded image" style="max-width:300px; border:1px solid #ccc; display:block; margin-bottom:8px;">
+            {% endif %}
+            <p><strong>Prediction:</strong> {{ prediction }}</p>
+          </div>
+        {% endif %}
+      <!-- ⬇️ ADD THIS PART put the div here-->
     </section>
 
   <script>
