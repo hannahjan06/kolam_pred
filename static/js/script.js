@@ -3,20 +3,29 @@ const sections = document.querySelectorAll('main section');
 const navLinks = document.querySelectorAll('.section-6 a');
 
 window.addEventListener('scroll', () => {
-  let current = '';
+  let current = '';})
+function hideAllSections() {
+  sections.forEach(section => section.classList.remove('active'));
+}
 
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
-    if (scrollY >= sectionTop) {
-      current = section.getAttribute('id');
-    }
-  });
+navLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const targetId = link.getAttribute('href').substring(1);
+    const targetSection = document.getElementById(targetId);
 
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href').includes(current)) {
-      link.classList.add('active');
-    }
+    hideAllSections();
+    targetSection.classList.add('active');
+
+    navLinks.forEach(nav => nav.classList.remove('active'));
+    link.classList.add('active');
+
+    // ✅ If canvas section is activated, resize canvas
+    if (targetId === 'canvas') {
+      targetSection.classList.add('active');
+  // Wait for the section to be displayed, then resize
+    setTimeout(resizeCanvas, 0);
+}
   });
 });
  const canvas = document.getElementById('kolamBoard');
@@ -44,7 +53,7 @@ function drawGrid() {
   const grid = parseInt(gridInput.value);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  ctx.strokeStyle = '#ddd';
+  ctx.strokeStyle = '#fffff';
   ctx.lineWidth = 1;
 
   for (let x = 0; x <= canvas.width; x += grid) {

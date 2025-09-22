@@ -421,3 +421,16 @@ h1, h2, h3, h4, h5, h6 {
 .gallery-controls input::placeholder {
   color: #94a3b8;
 }
+main section {
+  display: none; /* hide inactive sections */
+}
+
+main section.active {
+  display: block; /* show active section */
+}
+.canvas-board {
+  flex: 1; /* take remaining space */
+  min-width: 400px; /* optional: minimum size */
+  max-width: 800px; /* optional: maximum size */
+  height: 600px; /* or auto? depends on design */
+}
