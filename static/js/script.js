@@ -161,3 +161,55 @@ function clearBoard() {
 
   searchBar.addEventListener("input", filterGallery);
   filterCategory.addEventListener("change", filterGallery);
+const moodButtons = document.querySelectorAll('.mood-btn');
+const resultsDiv = document.getElementById('mood-results');
+
+moodButtons.forEach(btn => {
+  btn.addEventListener('click', async () => {
+    const mood = btn.dataset.mood;
+    resultsDiv.innerHTML = `<p>Loading results for <b>${mood}</b> mood... ✨</p>`;
+
+    // Send to backend/AI model
+    const response = await fetch('/api/moodboard', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ mood })
+    });
+
+    const data = await response.json();
+
+    // Display results (assuming your AI sends back images/text)
+    resultsDiv.innerHTML = `
+      <h3>Results for ${mood} mood:</h3>
+      <div>${data.results}</div>
+    `;
+  });
+});
+const gallery = document.getElementById("gallery");
+
+// Add images kol_p_51 → kol_p_100
+for (let i = 51; i <= 65; i++) {
+  const item = document.createElement("div");
+  item.classList.add("gallery-item");
+  item.setAttribute("data-category", "pulli"); // 👈 specify category
+
+  const img = document.createElement("img");
+  img.src = `imagesgallery/kol_p_${i}.jpg`; // adjust path/extension
+  img.alt = `Kolam ${i}`;
+
+  const likeDislike = document.createElement("div");
+  likeDislike.classList.add("like-dislike");
+  likeDislike.innerHTML = `
+    <button class="like">👍</button>
+    <button class="dislike">👎</button>
+  `;
+
+  item.appendChild(img);
+  item.appendChild(likeDislike);
+  gallery.appendChild(item);
+}
+
+  
+
+
+
