@@ -161,8 +161,6 @@ def detect_emotion():
     return jsonify({"emotion": emotion})
 
 @app.route("/mood_image")
-@app.route("/mood_image")
-@app.route("/mood_image")
 def mood_image():
     from flask import request, url_for
     emotion = request.args.get("emotion")
