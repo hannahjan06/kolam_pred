@@ -9,6 +9,11 @@ from tensorflow.keras.applications import EfficientNetB0
 from tensorflow.keras import Sequential, layers
 from tensorflow.keras.layers import Input
 
+# Load the pre-trained Haar Cascade for face detection
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+
+# somewhere near the top of app.py
+
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # suppress INFO and WARNING logs
 
@@ -38,6 +43,15 @@ CLASS_NAMES = {0: "Kambi Kolam", 1: "Sikku Kolam", 2: "Pulli Kolam"}
 # - "image" => model expects (1,224,224,3) (recommended for EfficientNet)
 # - "flatten" => model expects (1, 224*224*3) or (1, 224*224) if grayscale
 MODEL_INPUT_MODE = "image"  # <- change to "flatten" if your .keras model expects flattened input
+
+emotion_folders = {
+    "happy": os.path.join(app.static_folder, "images", "happy"),
+    "sad": os.path.join(app.static_folder, "images", "sad"),
+    "angry": os.path.join(app.static_folder, "images", "angry"),
+    "surprise": os.path.join(app.static_folder, "images", "surprise"),
+    "fear": os.path.join(app.static_folder, "images", "fear"),
+    "neutral": os.path.join(app.static_folder, "images", "neutral"),
+}
 
 @app.route("/")
 def index():
@@ -98,6 +112,76 @@ def upload_file():
 
     return render_template("index.html", prediction=prediction_text, image_url=image_url)
 
+from flask import Response, stream_with_context
+
+cap = cv2.VideoCapture(0)  # global video capture
+
+def generate_frames():
+    while True:
+        success, frame = cap.read()
+        if not success:
+            break
+        else:
+            # Flip horizontally for mirror effect (optional)
+            frame = cv2.flip(frame, 1)
+
+            # Encode frame as JPEG
+            ret, buffer = cv2.imencode('.jpg', frame)
+            frame_bytes = buffer.tobytes()
+            
+            # Yield in MJPEG format
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
+
+@app.route('/video_feed')
+def video_feed():
+    return Response(generate_frames(),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
+
+import random
+from flask import jsonify
+
+@app.route("/detect_emotion")
+def detect_emotion():
+    from deepface import DeepFace
+    success, frame = cap.read()
+    if not success:
+        return jsonify({"emotion": None})
+
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    faces = face_cascade.detectMultiScale(gray, 1.1, 5)
+    if len(faces) == 0:
+        return jsonify({"emotion": None})
+
+    # Use the first face
+    x, y, w, h = faces[0]
+    face_roi = frame[y:y+h, x:x+w]
+    result = DeepFace.analyze(face_roi, actions=['emotion'], enforce_detection=False)
+    emotion = result[0]['dominant_emotion']
+    return jsonify({"emotion": emotion})
+
+@app.route("/mood_image")
+@app.route("/mood_image")
+@app.route("/mood_image")
+def mood_image():
+    from flask import request, url_for
+    emotion = request.args.get("emotion")
+    folder = emotion_folders.get(emotion)
+    if not folder:
+        return jsonify({"url": ""})
+
+    img_files = [f for f in os.listdir(folder) if f.lower().endswith((".jpg", ".png", ".jpeg"))]
+    if not img_files:
+        return jsonify({"url": ""})
+
+    chosen = random.choice(img_files)
+
+    # Always build relative path inside static/
+    rel_path = f"images/{emotion}/{chosen}"
+    url = url_for("static", filename=rel_path)
+
+    print("Serving:", url)  # Debug
+    return jsonify({"url": url})
 
 if __name__ == "__main__":
     app.run(debug=True)

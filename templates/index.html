@@ -235,22 +235,23 @@
         {% endif %}
       </div>
     </section>
+
     <section id="moodboard">
       <h2>Explore kolams by your<b> MOOD</b></h2>
-      <h3>Select Your Mood</h3>
-      <div class="mood-options">
-        <button class="mood-btn" data-mood="happy">😊 Happy</button>
-        <button class="mood-btn" data-mood="calm">🌊 Calm</button>
-        <button class="mood-btn" data-mood="romantic">💖 Romantic</button>
-        <button class="mood-btn" data-mood="festive">🎉 Festive</button>
+
+      <div class="moodboard-wrapper">
+      <!-- Left: live camera -->
+        <div class="camera-feed">
+          <h3>Your Face</h3>
+          <img id="videoStream" src="{{ url_for('video_feed') }}" width="400" height="300">
+        </div>
+
+      <!-- Right: mood-based images -->
+        <div class="mood-display">
+          <h3>Mood Images</h3>
+          <img id="moodImage" src="" width="400" height="400">
+        </div>
       </div>
-
-      <div id="mood-results">
-        <!-- AI-generated results will appear here -->
-      </div>
-
-
-
     </section>
 
     <script>
@@ -267,6 +268,48 @@
 
 
     <script src="static/js/script.js"></script>
+    
+  <script>
+  const moodFolders = {
+    happy: "images/happy",
+    sad: "images/sad",
+    angry: "images/angry",
+    surprise: "images/surprise",
+    fear: "images/fear",
+    neutral: "images/neutral",
+    disgust: "images/disgust"
+  };
+
+  let lastEmotion = null;
+
+  async function updateMoodImage() {
+    try {
+      // Fetch latest emotion from server
+      const res = await fetch('/detect_emotion');
+      const data = await res.json();
+
+      if(data.emotion && data.emotion !== lastEmotion) {
+        lastEmotion = data.emotion;
+
+        // Get random image for this emotion
+        const imgRes = await fetch(`/mood_image?emotion=${data.emotion}`);
+        const imgData = await imgRes.json();
+
+        if(imgData.url) {
+          document.getElementById('moodImage').src = imgData.url;
+        }
+      }
+    } catch(err) {
+      console.error(err);
+    }
+
+    setTimeout(updateMoodImage, 500); // poll every 0.5 sec
+  }
+
+  // Start the polling loop
+  updateMoodImage();
+  </script>
+
 </body>
 
 </html>
