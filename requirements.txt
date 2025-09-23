@@ -1,7 +1,9 @@
 numpy
 opencv-python
 pillow
-tensorflow        # if using TF model (optional)
+tensorflow
 streamlit
 flask
 werkzeug
+deepface
+tf_keras
